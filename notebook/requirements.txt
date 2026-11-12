@@ -1,0 +1,12 @@
+# Pinned to the versions bundled in Pyodide 0.29.5, so the notebook and dashboard match.
+numpy==2.2.5
+pandas==2.3.3
+scipy==1.14.1
+scikit-learn==1.7.0
+statsmodels==0.14.4
+matplotlib
+ipykernel
+nbformat
+nbconvert
+anthropic
+python-dotenv

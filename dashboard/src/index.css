@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #040c16;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: #eaf2f7;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Deep-water backdrop: two slow-drifting light pools over navy. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(43, 181, 168, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(42, 120, 214, 0.16), transparent 60%),
+    linear-gradient(180deg, #061424 0%, #040c16 55%, #030912 100%);
+}
+.backdrop::before,
+.backdrop::after {
+  content: "";
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  animation: drift 28s ease-in-out infinite alternate;
+}
+.backdrop::before {
+  background: #5ee6d8;
+  top: 40%;
+  left: -15%;
+}
+.backdrop::after {
+  background: #d4f36b;
+  bottom: -25%;
+  right: -10%;
+  opacity: 0.06;
+  animation-duration: 36s;
+}
+@keyframes drift {
+  to {
+    transform: translate(12vmax, -8vmax) scale(1.15);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .backdrop::before,
+  .backdrop::after {
+    animation: none;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.6)] backdrop-blur-xl;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs text-ink-soft;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-3.5 py-2 text-sm font-medium text-ink transition hover:border-aqua/40 hover:bg-white/[0.10] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aqua/60 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply border-aqua/40 bg-aqua/15 text-aqua hover:bg-aqua/25;
+  }
+  .label {
+    @apply text-[11px] font-medium uppercase tracking-[0.12em] text-ink-mute;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #5ee6d8;
+  box-shadow: 0 0 0 4px rgba(94, 230, 216, 0.18);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: #5ee6d8;
+  cursor: pointer;
+}
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(94, 230, 216, 0.45);
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 11px;
+}
+.recharts-wrapper:focus,
+.recharts-surface:focus {
+  outline: none;
+}

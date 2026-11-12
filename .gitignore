@@ -1,0 +1,19 @@
+# Large raw data (790 MB) and local artefacts - not committed
+/data/
+/archive.zip
+*.jpeg
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+dashboard/.env
+
+# Node / build
+node_modules/
+dashboard/dist/
+dashboard/.netlify/
+
+# Local editor / tooling
+.claude/
