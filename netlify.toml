@@ -1,7 +1,12 @@
-# Netlify settings. In the Netlify UI set "Base directory" to: dashboard
+# Netlify settings (repo root, so no UI configuration is needed).
+# The app lives in dashboard/; publish and functions paths are relative to it.
 [build]
+  base = "dashboard"
   command = "npm run build"
   publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
 
 [functions]
   directory = "netlify/functions"

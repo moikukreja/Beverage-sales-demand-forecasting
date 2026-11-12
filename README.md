@@ -47,14 +47,9 @@ git-ignored. Without a key, the dashboard uses its offline interpretation.
 1. Push this folder to your GitHub repository. `.gitignore` already excludes the raw data,
    `.env`, `node_modules` and the build output.
 2. In Netlify, go to **Add new site → Import an existing project → GitHub** and pick the repo.
-3. Build settings:
-   * Base directory: `dashboard`
-   * Build command: `npm run build`
-   * Publish directory: `dashboard/dist`
-   * Functions directory: `dashboard/netlify/functions`
-
-   `netlify.toml` sets the build command, publish directory and functions directory relative to
-   the base directory, so in the UI you normally only need to enter the base directory.
+3. Build settings come from `netlify.toml` at the repo root: base `dashboard`, command
+   `npm run build`, publish `dashboard/dist`, functions `dashboard/netlify/functions`. Leave the
+   UI fields empty or matching these.
 4. Go to **Site configuration → Environment variables → Add a variable**:
    * Key: `ANTHROPIC_API_KEY`
    * Value: your key
