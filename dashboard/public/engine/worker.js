@@ -8,7 +8,7 @@
  */
 /* global loadPyodide */
 const PYODIDE_VERSION = "0.29.5";
-const ENGINE_VERSION = "1"; // bump to bust the cached engine file after editing it
+const ENGINE_VERSION = "2"; // bump to bust the cached engine file after editing it
 importScripts(`https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/pyodide.js`);
 
 const progress = (message) => self.postMessage({ type: "progress", message });

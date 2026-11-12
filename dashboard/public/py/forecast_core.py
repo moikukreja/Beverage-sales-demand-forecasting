@@ -398,9 +398,11 @@ launched a new flavored water product. You receive a JSON object with the CURREN
 a monthly sales forecasting exercise (data, settings, model metrics, forecasts, trend and \
 seasonality statistics, distribution shares, and known limitations).
 
-Answer the three questions of the lab exercise:
-1. seasonality_trends: How well did the models capture seasonality or trends?
-2. best_model: Which model performed best and why?
+Answer the three questions of the lab exercise, each in full sentences:
+1. seasonality_trends: How well did the models capture seasonality or trends? (2-4 sentences)
+2. best_model: Which model performed best and why? Name the model, compare its test WAPE and \
+MAPE with the other models, and explain the reason from the data (2-4 sentences, never just \
+a model name).
 3. recommendations: What recommendations would you give the company for production and \
 distribution? (3-4 items, one sentence each)
 Also list the most important caveats (2-4 items) drawn from known_limitations.
